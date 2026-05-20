@@ -78,6 +78,8 @@
     <module name="NoLineWrap">
       <property name="tokens" value="PACKAGE_DEF"/>
     </module>
+    <module name="AvoidStarImport"/>
+
 
     <module name="UpperEll"/>
     <module name="HexLiteralCase"/>
