@@ -92,6 +92,7 @@
     </module>
     
     <module name="AvoidStarImport"/>
+    <module name="AvoidStaticImport"/>
 
     <!-- §3.3: Import statements should be sorted -->
     <module name="ImportOrder">

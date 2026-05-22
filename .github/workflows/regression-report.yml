@@ -407,7 +407,7 @@ jobs:
       always() &&
       (needs.handle_existing_config_bundle.result == 'success'
         || needs.handle_generated_config_bundle.result == 'success'
-        || needs.handle_configs_in_pr_description.result == 'success')
+        || needs.handle_configs_in_pr_description.result == 'success'
         || needs.handle_diff_report.result == 'success')
     runs-on: ubuntu-latest
     outputs:
