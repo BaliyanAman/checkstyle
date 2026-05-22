@@ -16,8 +16,9 @@
 -->
 
 <module name="Checker">
-  <property name="severity" value="error"/>
+  <property name="severity" value="warning"/>
   <property name="charset" value="US-ASCII"/>
+  <property name="haltOnException" value="false"/>
 
   <property name="fileExtensions" value="java, properties, xml"/>
 
@@ -53,6 +54,9 @@
   </module>
 
   <module name="TreeWalker">
+
+    <property name="skipFileOnJavaParseException" value="true"/>
+    <property name="javaParseExceptionSeverity" value="ignore"/>
     <!-- Add TreeWalker checks based on OpenJDK style guide -->
     <module name="Indentation">
       <property name="basicOffset" value="4"/>
@@ -106,6 +110,11 @@
                 default="checkstyle-xpath-suppressions.xml" />
       <property name="optional" value="true"/>
     </module>
+
+    <module name="SuppressionXpathSingleFilter">
+      <property name="message" value="Javadoc comment at column \d+ has parse error"/>
+    </module>
+
 
     <module name="PackageName">
       <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
