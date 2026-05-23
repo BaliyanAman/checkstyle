@@ -91,6 +91,8 @@
       <property name="format" value="^[a-z]{2,}[a-zA-Z0-9]*$"/>
     </module>
 
+    <module name="AvoidStarImport"/>
+
     <!-- §3.3: Import statements should be sorted -->
     <module name="ImportOrder">
       <property name="groups" value="java,javax"/>
