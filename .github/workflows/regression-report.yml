@@ -499,6 +499,7 @@ jobs:
           git -C .ci-temp/checkstyle show upstream/master:"$CONFIG_LINK" > .ci-temp/diff_config.xml
           # Use PR branch config for the patch_config
           cp "$PATCH_CONFIG_LINK" .ci-temp/patch_config.xml
+<<<<<<< HEAD
 
           # Add config-level property (Checker)
           sed -i 's/<module name="Checker">/<module name="Checker">\n  <property name="haltOnException" value="false"\/>/g' .ci-temp/diff_config.xml
@@ -508,6 +509,8 @@ jobs:
           sed -i 's/<module name="TreeWalker">/<module name="TreeWalker">\n    <property name="skipFileOnJavaParseException" value="true"\/>\n    <property name="javaParseExceptionSeverity" value="ignore"\/>/g' .ci-temp/diff_config.xml
           sed -i 's/<module name="TreeWalker">/<module name="TreeWalker">\n    <property name="skipFileOnJavaParseException" value="true"\/>\n    <property name="javaParseExceptionSeverity" value="ignore"\/>/g' .ci-temp/patch_config.xml
 
+=======
+>>>>>>> 6957c9f965 (Added new workflow)
           yq ".projects = [.projects[] | select(.name == \"$PROJECT_NAME\")]" "$PROJECTS_LINK" > .ci-temp/projects.yml
 
       - name: Cache config files
