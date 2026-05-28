@@ -62,6 +62,8 @@
       <property name="arrayInitIndent" value="4"/>
     </module>
 
+    <module name="OverloadMethodsDeclarationOrder"/>
+
     <module name="OneStatementPerLine"/>
     <module name="OuterTypeFilename"/>
     <module name="IllegalTokenText">
