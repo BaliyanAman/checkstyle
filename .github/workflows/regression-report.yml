@@ -184,6 +184,11 @@ jobs:
             INPUT_FILE=$(echo "$COMMENT_BODY" | sed -E "s/$PATTERN_BY_CONFIG_FROM //g")
             ./.ci/append-to-github-output.sh "input_file" "$INPUT_FILE"
 
+          elif [[ "$COMMENT_BODY" =~ $PATTERN_LOCAL_CONFIG ]]; then
+            ./.ci/append-to-github-output.sh "mode" "local_config_for_project"
+            ./.ci/append-to-github-output.sh "project_name" "${BASH_REMATCH[1]}"
+            ./.ci/append-to-github-output.sh "config_path" "${BASH_REMATCH[2]}"
+
           else
             echo "No recognized pattern found in '$COMMENT_BODY'."
             exit 1
