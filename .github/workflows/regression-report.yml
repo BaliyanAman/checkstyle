@@ -546,15 +546,9 @@ jobs:
       - name: Process local-repo based config file for complete report
         if: needs.handle_local_config_for_complete_report.result == 'success'
         env:
-<<<<<<< HEAD
           PROJECT_NAME: ${{ needs.handle_local_config_for_complete_report.outputs.project_name }}
           CONFIG_LINK: ${{ needs.handle_local_config_for_complete_report.outputs.config_link }}
           PROJECTS_LINK: ${{ needs.handle_local_config_for_complete_report.outputs.projects_link }}
-=======
-          PROJECT_NAME: ${{ needs.handle_local_config_for_project.outputs.project_name }}
-          CONFIG_LINK: ${{ needs.handle_local_config_for_project.outputs.config_link }}
-          PROJECTS_LINK: ${{ needs.handle_local_config_for_project.outputs.projects_link }}
->>>>>>> 150217f52f (Added new workflow)
         run: |
           ./.ci/diff-report.sh process-local-repo-config-files-for-complete-report
 
