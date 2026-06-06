@@ -64,6 +64,9 @@
 
     <module name="OneStatementPerLine"/>
     <module name="OuterTypeFilename"/>
+
+    <module name="OverloadMethodsDeclarationOrder"/>
+
     <module name="IllegalTokenText">
       <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL, TEXT_BLOCK_CONTENT"/>
       <property name="format"
