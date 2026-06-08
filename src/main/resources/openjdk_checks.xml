@@ -63,6 +63,7 @@
     </module>
 
     <module name="OneStatementPerLine"/>
+  
     <module name="OuterTypeFilename"/>
     <module name="IllegalTokenText">
       <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL, TEXT_BLOCK_CONTENT"/>
