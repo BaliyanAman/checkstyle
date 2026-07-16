@@ -741,6 +741,17 @@ jobs:
           fi
           echo "-----------------------------------"
 
+      - name: Print header file
+        run: |
+          echo "Contents of openjdk-report.header:"
+          echo "-----------------------------------"
+          if [ -f .ci-temp/openjdk-report.header ]; then
+            cat .ci-temp/openjdk-report.header
+          else
+            echo "openjdk-report.header not found"
+          fi
+          echo "-----------------------------------"
+
       - name: Generate report
         run: |
           cd .ci-temp
