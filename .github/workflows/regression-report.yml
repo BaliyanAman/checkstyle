@@ -125,7 +125,7 @@ jobs:
 
       - name: Tar workspace artifact
         run: |
-          tar -cf "$RUNNER_TEMP/workspace.tar" .
+          tar --exclude='*/.git' --exclude='*/.git/*' -cf "$RUNNER_TEMP/workspace.tar" .
 
       - name: Upload workspace artifact
         uses: actions/upload-artifact@v7
