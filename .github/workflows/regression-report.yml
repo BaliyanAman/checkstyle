@@ -788,6 +788,7 @@ jobs:
           if [ -f "${{ github.workspace }}/.ci-temp/openjdk-report.header" ]; then
             HEADER_PATH="${{ github.workspace }}/.ci-temp/openjdk-report.header"
             EXTRA_MVN_OPTIONS="${EXTRA_MVN_OPTIONS} -Dheader-file-paths-separated-by-coma=${HEADER_PATH}"
+            echo "Extra maven properties: $EXTRA_MVN_OPTIONS"
           fi
 
           # Run DiffTool with appropriate arguments
