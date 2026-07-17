@@ -26,6 +26,7 @@ env:
   GENERATED_CONFIGS_PATH: generated_configs
   LOCAL_CONFIG_BASE_PATH: "src/main/resources"
   LOCAL_PROJECTS_FILE_PATH: "config/list-of-projects.yml"
+  OPENJDK_HEADER_FILE_PATH: "config/openjdk.header"
 
 on:
   issue_comment:
@@ -742,6 +743,17 @@ jobs:
           fi
           echo "-----------------------------------"
 
+      - name: Print header file
+        run: |
+          echo "Contents of openjdk-report.header:"
+          echo "-----------------------------------"
+          if [ -f .ci-temp/openjdk-report.header ]; then
+            cat .ci-temp/openjdk-report.header
+          else
+            echo "openjdk-report.header not found"
+          fi
+          echo "-----------------------------------"
+
       - name: Generate report
         run: |
           cd .ci-temp
@@ -774,6 +786,14 @@ jobs:
 
           CONFIG_DIR="${{ github.workspace }}/.ci-temp/config"
           EXTRA_MVN_OPTIONS="-Dcheckstyle.failsOnError=false -Dconfig.folder=${CONFIG_DIR}"
+          echo "Extra maven properties: $EXTRA_MVN_OPTIONS"
+
+          # if [ -f "${{ github.workspace }}/.ci-temp/openjdk-report.header" ]; then
+          #   HEADER_PATH="${{ github.workspace }}/.ci-temp/openjdk-report.header"
+          #   HEADER_BEFORE="-Dopenjdk.folder=${HEADER_PATH}"
+          #   EXTRA_MVN_OPTIONS="${EXTRA_MVN_OPTIONS} -Dopenjdk.folder=${HEADER_PATH}"
+          #   echo "Extra maven properties: $EXTRA_MVN_OPTIONS"
+          # fi
 
           # Run DiffTool with appropriate arguments
           if [ -f "$NEW_MODULE_CONFIG" ]; then
@@ -789,7 +809,7 @@ jobs:
               --diffToolJarPath "$PATCH_DIFF_TOOL_JAR"
           elif [ -f "$BASELINE_CONFIG" ]; then
             echo "Generating complete report for config"
-            java -jar "$DIFFTOOL_JAR" \
+            java ${HEADER_BEFORE:+ $HEADER_BEFORE} -jar "$DIFFTOOL_JAR" \
               -r "$REPO" \
               -p "$PR_BRANCH" \
               -pc "$BASELINE_CONFIG" \
