@@ -794,7 +794,7 @@ jobs:
             echo "Extra maven properties: $EXTRA_MVN_OPTIONS"
           fi
 
-          # Run DiffTool with appropriate arguments
+          # Run DiffTool with appropriate argument
           if [ -f "$NEW_MODULE_CONFIG" ]; then
             echo "Generating report for new module"
             java -jar "$DIFFTOOL_JAR" \
