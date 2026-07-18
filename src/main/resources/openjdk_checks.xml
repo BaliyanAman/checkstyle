@@ -15,7 +15,7 @@
 
 -->
 
-<module name="Checker">
+<module name="Checker"> 
   <property name="severity" value="error"/>
   <property name="charset" value="US-ASCII"/>
 
