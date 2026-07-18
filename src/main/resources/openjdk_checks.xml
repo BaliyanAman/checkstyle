@@ -21,6 +21,7 @@
 
   <property name="fileExtensions" value="java, properties, xml"/>
 
+
   <module name="MultiFileRegexpHeader">
     <property name="fileExtensions" value="java"/>
     <property name="headerFiles" value="${config.folder}/openjdk.header"/>
