@@ -743,7 +743,7 @@ jobs:
           fi
           echo "-----------------------------------"
 
-      - name: Print header file
+      - name: Print header file of openjdk
         run: |
           echo "Contents of openjdk-report.header:"
           echo "-----------------------------------"
